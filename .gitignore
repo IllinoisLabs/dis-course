@@ -1,3 +1,9 @@
+# System
+.DS_Store
+thumbs.db
+.vscode
+.idea
+
 # Logs
 logs
 *.log
