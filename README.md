@@ -1,7 +1,7 @@
 # dis-course
 
 <img src="https://img.shields.io/badge/license-GNU%20AGPL%20v3-orange" />
-<img src="https://img.shields.io/github/stars/IllinoisLabs/dis-course?style=social">
+<img src="https://img.shields.io/github/stars/IllinoisLabs/dis-course?color=blueviolet">
 
 A course discovery platform for University of Illinois students.
 
