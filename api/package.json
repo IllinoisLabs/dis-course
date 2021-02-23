@@ -1,0 +1,10 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Illinois Labs",
+  "license": "none",
+  "dependencies": {
+    "mongodb": "^3.6.4"
+  }
+}
