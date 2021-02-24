@@ -4,6 +4,7 @@ services:
   api:
     restart: always
     build: ./api
+    env_file: ./api/.env
     container_name: api
     command: yarn start
     volumes:
