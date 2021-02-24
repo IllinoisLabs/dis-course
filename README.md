@@ -4,39 +4,64 @@
 
 A course discovery platform for University of Illinois students.
 
-## Getting Started
+## Requirements
 
 ### Global Dependencies
 
 - Node.js
 - Yarn
 
-### Client (React App)
+### For Docker
 
-#### 1. Install dependencies
+- [Docker Desktop](https://www.docker.com/products/docker-desktop)
+- CLang/Make
+  - macOS: `xcode-select --install` or install [XCode Command-Line Tools](https://developer.apple.com/download/more/?=xcode)
+  - Aptitude: `apt-get -y install make`
+
+## Running Locally
+
+### Dockerized (Recommended Method)
+
+The containerized method allows for quick setup of a local develop environment running the client, api, and database.
+
+**Ensure you have Docker Desktop Running**
+
+#### Usage
+
+The included [`Makefile`](./Makefile) provides Docker command wrappings with rich output for the following arguments:
+
+#### Spinning Up A Development Instance
 
 ```bash
-yarn # install dependencies and start development environment
+make up
 ```
 
-#### 2. Start Development Environment
+#### Shutting Down An Instance
 
 ```bash
-yarn start # start development environment
+make down
 ```
 
-### API (Express.js)
-
-#### 1. Install dependencies
+#### Force Container Rebuild
 
 ```bash
-yarn # install dependencies and start development environment
+make build
 ```
 
-#### 2. Start Development Environment
+### Standalone
+
+Standalone environments are great for working on a singular component of the application (e.g. the client) with little overhead.
+
+#### Client (React App)
 
 ```bash
-yarn start # start development environment
+yarn && yarn start # install dependencies and start development environment
+```
+
+#### API (Express.js)
+
+```bash
+yarn && yarn start # install dependencies and start development environment
 ```
 
 ### Contributing
