@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "alias": "dis-course.now.sh",
+  "builds": [
+    { "src": "api/index.js", "use": "@now/node" },
+    {
+      "src": "client/package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "build" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "headers": { "cache-control": "s-maxage=0" },
+      "dest": "api/index.js"
+    },
+    {
+      "src": "/static/(.*)",
+      "headers": { "cache-control": "s-maxage=31536000,immutable" },
+      "dest": "client/static/$1"
+    },
+    { "src": "/favicon.ico", "dest": "/client/favicon.ico" },
+    {
+      "src": "/asset-manifest.json",
+      "dest": "client/asset-manifest.json"
+    },
+    { "src": "/manifest.json", "dest": "client/manifest.json" },
+    {
+      "src": "/precache-manifest.(.*)",
+      "dest": "client/precache-manifest.$1"
+    },
+    {
+      "src": "/service-worker.js",
+      "headers": { "cache-control": "s-maxage=0" },
+      "dest": "client/service-worker.js"
+    },
+    { "src": "/(.*)", "dest": "client/index.html" }
+  ]
+}
