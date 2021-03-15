@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Course = require('../models/course');
+const { hashId } = require('../utils/helper');
 
 // Getting all courses
 router.get('/', async (req, res) => {
@@ -15,6 +16,7 @@ router.get('/', async (req, res) => {
 // Creating one course
 router.post('/', async (req, res) => {
   const course = new Course({
+    id: hashId(req.body.name + req.body.coi + req.body.cn),
     name: req.body.name,
     coi: req.body.coi,
     cn: req.body.cn,
@@ -67,7 +69,7 @@ router.delete('/:id', getCourse, async (req, res) => {
 // get course object by ID
 async function getCourse(req, res, next) {
   try {
-    course = await Course.findById(req.params.id);
+    course = await Course.findOne({ id: req.params.id });
     if (course == null) {
       return res.status(404).json({ message: 'Cant find course' });
     }
