@@ -52,14 +52,12 @@ router.patch('/:id', getReview, async (req, res) => {
     res.review.desc = req.body.desc;
   }
 
-  if (req.body.lastEdited != null) {
-    res.review.lastEdited = (new Date()).now();
-  }
-
   if (req.body.author != null) {
     res.review.author = req.body.author;
   }
 
+  res.review.lastEdited = (new Date()).now();
+  
   try {
     const updatedReview = await res.review.save();
     res.json(updatedReview);
