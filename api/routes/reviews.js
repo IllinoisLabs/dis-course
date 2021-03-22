@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Review = require('../models/review');
+const { hashId } = require('../utils/helper');
 
 // Getting all reviews
 router.get('/', async (req, res) => {
@@ -15,11 +16,12 @@ router.get('/', async (req, res) => {
 // create a review
 router.post('/', async (req, res) => {
   const review = new Review({
+    id: hashId(req.body.title + req.body.author + req.body.desc + req.body.created),
     title: req.body.title,
     rating: req.body.rating,
     desc: req.body.desc,
-    lastEdited: req.body.lastEdited,
-    created: req.body.created,
+    lastEdited: (new Date()).now(),
+    created: (new Date()).now(), 
     author: req.body.author,
   });
 
@@ -51,11 +53,7 @@ router.patch('/:id', getReview, async (req, res) => {
   }
 
   if (req.body.lastEdited != null) {
-    res.review.lastEdited = req.body.lastEdited;
-  }
-
-  if (req.body.created != null) {
-    res.review.created = req.body.created;
+    res.review.lastEdited = (new Date()).now();
   }
 
   if (req.body.author != null) {
