@@ -25,6 +25,7 @@ async function getMajor(req, res, next) {
 
   res.major = major;
   next();
+  
 }
 
 module.exports = router;

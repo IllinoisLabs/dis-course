@@ -21,6 +21,7 @@ const majorSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  
 });
 
 module.exports = mongoose.model('Major', majorSchema);
