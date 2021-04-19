@@ -15,6 +15,8 @@ app.use(express.json());
 
 const coursesRouter = require('./routes/courses');
 app.use('/courses', coursesRouter);
+const majorsRouter = require('./routes/majors');
+app.use('/majors', majorsRouter);
 
 const careersRouter = require('./routes/careers');
 app.use('/career', careersRouter);
