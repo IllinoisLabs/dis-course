@@ -9,10 +9,6 @@ const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('connected to database'));
 
-
-
-
-
 // generates array of num numbers from 0 to max-1
 const rng = (num, max) => {
   var a = [];
@@ -23,12 +19,10 @@ const rng = (num, max) => {
   return a;
 };
 
-
 //csv parsing
 var csv = require("csvtojson");
 var num = process.argv[2];
 const filePath = __dirname + '/2020-sp-courses.csv';
-
 
 csv().fromFile(filePath).then((d) => {
   //select num random courses from dataset

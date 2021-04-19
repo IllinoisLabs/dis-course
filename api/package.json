@@ -9,13 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "csvtojson": "^2.0.10",
     "express": "^4.17.1",
     "md5": "^2.3.0",
     "mongoose": "^5.6.4"
   },
   "devDependencies": {
-    "csv-parse": "^4.15.3",
-    "csvtojson": "^2.0.10",
     "dotenv": "^8.0.0",
     "nodemon": "^1.19.1"
   }
