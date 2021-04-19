@@ -21,4 +21,7 @@ app.use('/majors', majorsRouter);
 const careersRouter = require('./routes/careers');
 app.use('/career', careersRouter);
 
+const careersRouter = require('./routes/careers');
+app.use('/career', careersRouter);
+
 app.listen(8000, () => console.log('server started'));
